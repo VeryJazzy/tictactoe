@@ -7,8 +7,7 @@ public class Printer {
                 print.append(board[i]).append("\n");
             } else if (i == 8) {
                 print.append(board[i]);
-            }
-            else {
+            } else {
                 print.append(board[i]).append(" ");
             }
         }

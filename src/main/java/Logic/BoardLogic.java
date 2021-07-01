@@ -1,19 +1,11 @@
+package Logic;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Table {
+public class BoardLogic {
 
-    private final String[] board = new String[9];
-
-    public Table() {
-        fillEmptyTable();
-    }
-
-    public String[] getBoard() {
-        return board;
-    }
-
-    public boolean checkWinner() {
+    public String checkWinner(String[] board) {
         List<String> lines = new ArrayList<>();
         lines.add(board[0] + board[1] + board[2]);
         lines.add(board[3] + board[4] + board[5]);
@@ -25,23 +17,13 @@ public class Table {
         lines.add(board[2] + board[4] + board[6]);
 
         for (String line : lines) {
-            if (line.equals("xxx") || line.equals("ooo")) {
-                return true;
+            if (line.equals("xxx")) {
+                return "X Has Won!";
+            }
+            if (line.equals("ooo")) {
+                return "O Has Won!";
             }
         }
-        return false;
+        return "No Winner";
     }
-
-    public void add(String player, int index) {
-        board[index] = player;
-    }
-
-    private void fillEmptyTable() {
-        for (int i = 0; i < 9; i++) {
-            board[i] = "_";
-        }
-    }
-
-
-
 }
